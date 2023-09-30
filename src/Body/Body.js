@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import MovieModal from "../MovieModal/MovieModal";
 import "./Body.css";
-//components
 
-//api
 const api = "https://www.omdbapi.com/?";
-
-//api key
 const apiKey = "apikey=18eaeb4f";
 
 const Main = () => {
@@ -15,11 +11,7 @@ const Main = () => {
   const [movies, setMovies] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
   const [movieDetails, setMovieDetails] = useState({});
-
-  //modal
   const [show, setShow] = useState(false);
-
-  //modal config
 
   const showModal = () => {
     setShow(true);
@@ -34,7 +26,6 @@ const Main = () => {
     hideModal();
   };
 
-  //get response from API
   const getInfo = () => {
     axios
       .get(api + apiKey + `&s=${name}` + "&type=movie" + "&page=1")
@@ -45,7 +36,6 @@ const Main = () => {
       });
   };
 
-  //get details
   const getDetails = (e, id) => {
     e.preventDefault();
 
@@ -58,7 +48,6 @@ const Main = () => {
     });
   };
 
-  //submit the title entered
   const handleSubmit = (e) => {
     e.preventDefault();
     getInfo();
@@ -75,7 +64,11 @@ const Main = () => {
             placeholder="movie name"
             onChange={(e) => setName(e.target.value)}
           />
-          <button type="submit" onClick={(e) => handleSubmit(e)}>
+          <button
+            className="searchBtn"
+            type="submit"
+            onClick={(e) => handleSubmit(e)}
+          >
             Search
           </button>
         </div>
