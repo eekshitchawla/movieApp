@@ -1,0 +1,33 @@
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.input {
+  padding: 1rem;
+  margin: 0 1rem;
+}
+.searchBtn {
+  border-radius: 50%;
+  padding: 1rem;
+  background-color: #fff;
+  border: 1px solid #eee;
+}
+.searchBtn:hover {
+  background-color: darkgray;
+  color: white;
+  font-weight: 700;
+}
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+}
+.movie {
+  width: 25%;
+  height: 40%;
+}
+.movie > img {
+  width: 10rem;
+  height: 10rem;
+}
